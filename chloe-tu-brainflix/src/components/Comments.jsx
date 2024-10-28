@@ -1,12 +1,39 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../App.css';
 
-import React from 'react';
-import '../App.css'; 
+const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
+const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
 
-const Comments = ({ comments }) => {
+const Comments = ({ videoId }) => {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (!videoId) return;
+      
+      try {
+        const url = `${API_URL}/videos/${encodeURIComponent(videoId)}/?api_key=${API_KEY}`;
+        console.log('Fetching comments from URL:', url); 
+        const response = await axios.get(url);
+        
+        
+        if (Array.isArray(response.data.comments)) {
+          setComments(response.data.comments);
+        } else {
+          console.error('Unexpected response format:', response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      } 
+    };
+
+    fetchComments();
+  }, [videoId]);
+
   return (
     <div className="comments">
       <h2>{comments.length} Comments</h2>
-      {}
       <div className="comments__new">
         <div className="comments__new__container">
           <img 
@@ -15,18 +42,19 @@ const Comments = ({ comments }) => {
             className="comments__new__user-image" 
           />
           <div className="comments__new__container__within">
-          <h3>JOIN THE CONVERSATION</h3>
-          <input
-            type="text"
-            placeholder="Add a new comment"
-            className="comments__new__input"
-          />
+            <h3>JOIN THE CONVERSATION</h3>
+            <input
+              type="text"
+              placeholder="Add a new comment"
+              className="comments__new__input"
+            />
           </div>
-          <button className="comments__new__button"><img src="./assets/Icons/add_comment.svg"></img> COMMENT</button>
+          <button className="comments__new__button">
+            COMMENT
+          </button>
         </div>
       </div>
 
-      {}
       {comments.length > 0 ? (
         comments.map(comment => (
           <div key={comment.id} className="comments__item">
@@ -44,9 +72,8 @@ const Comments = ({ comments }) => {
                   {new Date(comment.timestamp).toLocaleDateString()}
                 </p>
               </div>
-              <p>{comment.comment}</p> {}
+              <p>{comment.comment}</p>
             </div>
-
           </div>
         ))
       ) : (
@@ -57,4 +84,3 @@ const Comments = ({ comments }) => {
 };
 
 export default Comments;
-
