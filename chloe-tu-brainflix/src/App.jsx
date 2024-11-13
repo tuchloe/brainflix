@@ -1,12 +1,12 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Header from "./components/Header";
-import VideoPlayer from "./components/VideoPlayer";
-import Comments from "./components/Comments";
-import NextVideos from "./components/NextVideos";
-import VideoDetails from './components/VideoDetails';
-import './App.css';
+import Header from "./components/Header/Header";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
+import Comments from "./components/Comments/Comments";
+import NextVideos from "./components/NextVideosBar/NextVideos";
+import VideoDetails from './components/VideoDetails/VideoDetails';
 
 const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
 const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
@@ -48,13 +48,13 @@ const HomePage = ({ setSelectedVideo }) => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="main-content">
+    <div className="home-page">
       <VideoPlayer video={selectedVideo} />
-      <div className="main-content__details-next-videos">
-        <div className="left-column">
-          <div className="video-info">
+      <div className="home-page__layout">
+        <div className="home-page__left-column">
+          <div className="home-page__video-info">
             <h1>{selectedVideo.title}</h1>
-            <div className="video-info-data">
+            <div className="home-page__video-info-data">
               <strong>By {selectedVideo.channel}</strong>
               <p>{selectedVideo.views ? `${selectedVideo.views} views` : 'Loading views...'} | {selectedVideo.likes ? `${selectedVideo.likes} likes` : 'Loading likes...'}</p>
             </div>
@@ -62,7 +62,7 @@ const HomePage = ({ setSelectedVideo }) => {
           </div>
           <Comments videoId={selectedVideo.id} />
         </div>
-        <div className="right-column">
+        <div className="home-page__right-column">
           <NextVideos 
             videos={videos.filter(video => video.id !== selectedVideo.id)}
             onVideoSelect={(video) => fetchVideoDetails(video.id)}

@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "AvenirNext";
+  font-weight: 400;
+  src: url("./assets/Font/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "AvenirNextDemi";
+  font-weight: 600;
+  src: url("./assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
+}
+@font-face {
+  font-family: "AvenirNextBold";
+  font-weight: 700;
+  src: url("./assets/Font/AvenirNextLTPro-Bold.otf") format("opentype");
+}
+body {
+  font-family: "AvenirNext", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
+}
+body h1,
+body h2,
+body h3,
+body strong {
+  font-family: "AvenirNextBold";
+}
+body h1 {
+  font-size: 33px;
+  line-height: 44px;
+}
+body h2 {
+  font-size: 16px;
+  line-height: 20px;
+}
+body h3 {
+  font-size: 14px;
+}
+body p {
+  font-size: 14px;
+  line-height: 22px;
+  color: #000;
+  font-weight: 400;
+}
+
+.video-upload {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.video-upload__title {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.video-upload__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.video-upload__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.video-upload__label {
+  font-size: 14px;
+  font-family: "AvenirNextDemi";
+  color: #000;
+}
+.video-upload__thumbnail {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.video-upload__thumbnail-image {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.video-upload__input, .video-upload__textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  background-color: #fafafa;
+  font-size: 12px;
+  font-family: "AvenirNext";
+}
+.video-upload__textarea {
+  height: 120px;
+  resize: none;
+}
+.video-upload__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+.video-upload__buttons__button {
+  font-size: 12px;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-family: "AvenirNextBold";
+  border-radius: 4px;
+  width: 145px;
+  transition: background-color 0.3s;
+}
+.video-upload__buttons__button--publish {
+  background-color: #0095ff;
+  color: #fff;
+}
+.video-upload__buttons__button--publish:hover {
+  background-color: #007acc;
+}
+.video-upload__buttons__button--cancel {
+  background-color: #fff;
+  color: #0095ff;
+  border: 2px solid #fff;
+}
+.video-upload__buttons__button--cancel:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 767px) {
+  .video-upload__buttons {
+    flex-direction: column;
+  }
+  .video-upload__buttons .video-upload__button {
+    width: 100%;
+  }
+}/*# sourceMappingURL=VideoUpload.css.map */

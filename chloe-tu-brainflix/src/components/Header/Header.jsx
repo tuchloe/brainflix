@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
-import BrainFlixLogo from '../assets/Logo/BrainFlix-logo.svg';
+import '../Header/Header.css';
+import BrainFlixLogo from '../Header/BrainFlix-logo.svg';
 
 const Header = () => {
   return (
@@ -9,13 +9,13 @@ const Header = () => {
       <div className="header__logo">
         <Link to="/">
           <img 
-            className="header__logo__img" 
+            className="header__logo-img" 
             src={BrainFlixLogo} 
             alt="BrainFlix Logo" 
           />
         </Link>
       </div>
-      <div className="header__search-upload">
+      <div className="header__controls">
         <input 
           className="header__search-input" 
           type="text" 
@@ -27,7 +27,7 @@ const Header = () => {
         <img 
           src="./assets/Images/Mohan-muruge.jpg" 
           alt="User Display" 
-          className="header__user-image" 
+          className="header__user-img" 
         />
       </div>
     </header>

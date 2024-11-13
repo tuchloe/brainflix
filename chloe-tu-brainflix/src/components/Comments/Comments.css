@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "AvenirNext";
+  font-weight: 400;
+  src: url(./assets/Font/AvenirNextLTPro-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNextDemi";
+  font-weight: 600;
+  src: url(./assets/Font/AvenirNextLTPro-Demi.otf) format("opentype");
+}
+@font-face {
+  font-family: "AvenirNextBold";
+  font-weight: 700;
+  src: url(./assets/Font/AvenirNextLTPro-Bold.otf) format("opentype");
+}
+body {
+  font-family: "AvenirNext", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
+}
+body h1, body h2, body h3, body strong {
+  font-family: "AvenirNextBold";
+}
+body h1 {
+  font-size: 33px;
+  line-height: 44px;
+}
+body h2 {
+  font-size: 16px;
+  line-height: 20px;
+}
+body h3 {
+  font-size: 14px;
+}
+body p {
+  color: #000;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+body button {
+  font-size: 12px;
+  line-height: 20px;
+  padding: 10px 15px;
+  background-color: #0095FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 145px;
+  font-family: "AvenirNextBold";
+  cursor: pointer;
+}
+
+.comments {
+  margin-top: 20px;
+}
+.comments strong {
+  font-size: 14px;
+}
+.comments__new {
+  margin-bottom: 40px;
+}
+.comments__new-title {
+  color: #AFAFAF;
+  font-family: "AvenirNextDemi";
+}
+.comments__new-input {
+  width: 35vw;
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.comments__new-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.comments__new-user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comments__item {
+  display: flex;
+  margin-bottom: 20px;
+  border-top: 1px solid #E1E1E1;
+}
+.comments__item-content {
+  flex-grow: 1;
+}
+.comments__item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+.comments__item-date {
+  font-size: 12px;
+  color: #AFAFAF;
+}
+
+@media (max-width: 767px) {
+  body h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  body h3 {
+    font-size: 13px;
+  }
+  body p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  body button {
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=Comments.css.map */

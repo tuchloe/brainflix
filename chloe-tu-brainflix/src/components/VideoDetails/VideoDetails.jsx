@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import VideoPlayer from './VideoPlayer';
-import Comments from './Comments';
-import NextVideos from './NextVideos';
+import VideoPlayer from '../VideoPlayer/VideoPlayer';
+import Comments from '../Comments/Comments';
+import NextVideos from '../NextVideosBar/NextVideos';
+import './VideoDetails.css';
 
 const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
 const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
@@ -47,11 +48,11 @@ const VideoDetails = ({ setSelectedVideo }) => {
   return (
     <div className="main-content">
       <VideoPlayer video={videoDetails} />
-      <div className="main-content__details-next-videos">
-        <div className="left-column">
-          <div className="video-info">
+      <div className="main-content__container">
+        <div className="main-content__left-column">
+          <div className="main-content__video-info">
             <h1>{videoDetails.title}</h1>
-            <div className="video-info-data">
+            <div className="main-content__video-data">
               <strong>By {videoDetails.channel}</strong>
               <p>{videoDetails.views} views | {videoDetails.likes} likes</p>
             </div>
@@ -59,7 +60,7 @@ const VideoDetails = ({ setSelectedVideo }) => {
           </div>
           <Comments videoId={videoId} />
         </div>
-        <div className="right-column">
+        <div className="main-content__right-column">
           <NextVideos
             videos={videos}
             selectedVideoId={videoId} 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../App.css';
+import '../Comments/Comments.css';
 
 const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
 const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
@@ -35,21 +35,21 @@ const Comments = ({ videoId }) => {
     <div className="comments">
       <h2>{comments.length} Comments</h2>
       <div className="comments__new">
-        <div className="comments__new__container">
+        <div className="comments__new-container">
           <img 
             src="./assets/Images/Mohan-muruge.jpg" 
             alt="User Display" 
-            className="comments__new__user-image" 
+            className="comments__new-user-image" 
           />
-          <div className="comments__new__container__within">
-            <h3>JOIN THE CONVERSATION</h3>
+          <div className="comments__new-container-within">
+            <h3 className="comments__new-title" >JOIN THE CONVERSATION</h3>
             <input
               type="text"
               placeholder="Add a new comment"
-              className="comments__new__input"
+              className="comments__new-input"
             />
           </div>
-          <button className="comments__new__button">
+          <button className="comments__new-button">
             COMMENT
           </button>
         </div>
@@ -58,17 +58,17 @@ const Comments = ({ videoId }) => {
       {comments.length > 0 ? (
         comments.map(comment => (
           <div key={comment.id} className="comments__item">
-            <div className="comments__item__image-container">
+            <div className="comments__item-image-container">
               <img
                 src="n/a"
                 alt={`${comment.name}'s Display`}
-                className="comments__item__user-image"
+                className="comments__item-user-image"
               />
             </div>
-            <div className="comments__item__content">
-              <div className="comments__item__header">
+            <div className="comments__item-content">
+              <div className="comments__item-header">
                 <strong>{comment.name}</strong>
-                <p className="comments__item__date">
+                <p className="comments__item-date">
                   {new Date(comment.timestamp).toLocaleDateString()}
                 </p>
               </div>

@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'AvenirNext';
+  font-weight: 400;
+  src: url(./assets/Font/AvenirNextLTPro-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: 'AvenirNextDemi';
+  font-weight: 600;
+  src: url(./assets/Font/AvenirNextLTPro-Demi.otf) format("opentype");
+}
+
+@font-face {
+  font-family: 'AvenirNextBold';
+  font-weight: 700;
+  src: url(./assets/Font/AvenirNextLTPro-Bold.otf) format("opentype");
+}
+
+body {
+  font-family: 'AvenirNext', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
+
+  h1, h2, h3, strong {
+    font-family: 'AvenirNextBold';
+  }
+
+  h1 {
+    font-size: 33px;
+    line-height: 44px;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    color: #000;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  button {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 15px;
+    background-color: #0095FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 145px;
+    font-family: 'AvenirNextBold';
+    cursor: pointer;
+  }
+}
+
+.App {
+  overflow-x: auto;
+}
+
+.main-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 100%;
+
+    .main-content__left-column {
+      width: 55vw;
+      margin-right: 20px;
+      padding-left: 5vw;
+    }
+    .main-content__video-info {
+      margin-bottom: 20px;
+
+      p {
+        margin: 5px 0;
+        color: #000;
+      }
+    }
+
+    .main-content__video-data {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #E1E1E1;
+      padding-bottom: 10px;
+    }
+
+    .main-content__right-column {
+      width: 30vw;
+      padding: 0 3vw;
+      border-left: 1px solid #E1E1E1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      h1 {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      h3 {
+        font-size: 13px;
+      }
+      p {
+        font-size: 13px;
+        line-height: 18px;
+      }
+      button {
+        font-size: 10px;
+      }
+    }
+  }
+}

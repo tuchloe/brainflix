@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'AvenirNext';
+  font-weight: 400;
+  src: url('./assets/Font/AvenirNextLTPro-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNextDemi';
+  font-weight: 600;
+  src: url('./assets/Font/AvenirNextLTPro-Demi.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNextBold';
+  font-weight: 700;
+  src: url('./assets/Font/AvenirNextLTPro-Bold.otf') format('opentype');
+}
+
+body {
+  font-family: 'AvenirNext', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
+
+  h1,
+  h2,
+  h3,
+  strong {
+    font-family: 'AvenirNextBold';
+  }
+
+  h1 {
+    font-size: 33px;
+    line-height: 44px;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+    font-weight: 400;
+  }
+}
+
+.video-upload {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+
+  &__title {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-family: 'AvenirNextDemi';
+    color: #000;
+  }
+
+  &__thumbnail {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    &-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-size: 12px;
+    font-family: 'AvenirNext';
+  }
+
+  &__textarea {
+    height: 120px;
+    resize: none;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 15px;
+
+    &__button {
+      font-size: 12px;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      font-family: 'AvenirNextBold';
+      border-radius: 4px;
+      width: 145px;
+      transition: background-color 0.3s;
+
+      &--publish {
+        background-color: #0095ff;
+        color: #fff;
+
+        &:hover {
+          background-color: #007acc;
+        }
+      }
+
+      &--cancel {
+        background-color: #fff;
+        color: #0095ff;
+        border: 2px solid #fff;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .video-upload__buttons {
+    flex-direction: column;
+
+    .video-upload__button {
+      width: 100%;
+    }
+  }
+}

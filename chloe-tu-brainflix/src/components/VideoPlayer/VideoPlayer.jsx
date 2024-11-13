@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../VideoPlayer/VideoPlayer.css';
 
 const VideoPlayer = ({ video }) => {
   if (!video) return <div>Loading...</div>;
