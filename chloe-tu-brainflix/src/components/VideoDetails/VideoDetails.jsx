@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../config';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
@@ -6,8 +7,6 @@ import Comments from '../Comments/Comments';
 import NextVideos from '../NextVideosBar/NextVideos';
 import './VideoDetails.css';
 
-const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
-const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
 
 const VideoDetails = ({ setSelectedVideo }) => {
   const { videoId } = useParams();
@@ -17,7 +16,7 @@ const VideoDetails = ({ setSelectedVideo }) => {
   useEffect(() => {
     const fetchVideoDetails = async () => {
       try {
-        const response = await axios.get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/videos/${videoId}`);
         setVideoDetails(response.data);
         setSelectedVideo(response.data);
       } catch (error) {
@@ -33,7 +32,7 @@ const VideoDetails = ({ setSelectedVideo }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`${API_URL}/videos?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/videos`);
         setVideos(response.data);
       } catch (error) {
         console.error('Error fetching videos list:', error);
@@ -71,6 +70,5 @@ const VideoDetails = ({ setSelectedVideo }) => {
     </div>
   );
 };
-
 
 export default VideoDetails;

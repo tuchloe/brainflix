@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../config';
 import axios from 'axios';
 import '../Comments/Comments.css';
 
-const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
-const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
-
 const Comments = ({ videoId }) => {
   const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
 
   useEffect(() => {
     const fetchComments = async () => {
       if (!videoId) return;
-      
+
       try {
-        const url = `${API_URL}/videos/${encodeURIComponent(videoId)}/?api_key=${API_KEY}`;
+        const url = `${API_URL}/videos/${encodeURIComponent(videoId)}`;
         console.log('Fetching comments from URL:', url); 
         const response = await axios.get(url);
-        
-        
+
         if (Array.isArray(response.data.comments)) {
           setComments(response.data.comments);
         } else {
@@ -31,6 +29,31 @@ const Comments = ({ videoId }) => {
     fetchComments();
   }, [videoId]);
 
+  const handleCommentChange = (event) => {
+    setNewComment(event.target.value);
+  };
+
+  const handleCommentSubmit = async () => {
+    if (!newComment.trim()) return; 
+
+    try {
+      const response = await axios.post(
+        `${API_URL}/videos/${encodeURIComponent(videoId)}/comments`,
+        { comment: newComment }
+      );
+
+      if (response.status === 201) {
+        setComments((prevComments) => [
+          ...prevComments,
+          response.data,
+        ]);
+        setNewComment('');
+      }
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+    }
+  };
+
   return (
     <div className="comments">
       <h2>{comments.length} Comments</h2>
@@ -42,14 +65,19 @@ const Comments = ({ videoId }) => {
             className="comments__new-user-image" 
           />
           <div className="comments__new-container-within">
-            <h3 className="comments__new-title" >JOIN THE CONVERSATION</h3>
+            <h3 className="comments__new-title">JOIN THE CONVERSATION</h3>
             <input
               type="text"
               placeholder="Add a new comment"
               className="comments__new-input"
+              value={newComment}
+              onChange={handleCommentChange}
             />
           </div>
-          <button className="comments__new-button">
+          <button
+            className="comments__new-button"
+            onClick={handleCommentSubmit}
+          >
             COMMENT
           </button>
         </div>

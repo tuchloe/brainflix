@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../config';
 import axios from 'axios';
-import VideoPlayer from "./VideoPlayer";
-import Comments from "./Comments";
-import NextVideos from "./NextVideos";
-import './App.css';
-
-const API_URL = 'https://unit-3-project-api-0a5620414506.herokuapp.com';
-const API_KEY = 'b9839b31-b3b8-4a10-a6c4-541c7c4b9c28';
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import Comments from "../Comments/Comments";
+import NextVideos from "../NextVideosBar/NextVideos";
+import './Home.css';
 
 const Home = ({ setSelectedVideo }) => {
   const [videos, setVideos] = useState([]);
@@ -16,7 +14,7 @@ const Home = ({ setSelectedVideo }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get(`${API_URL}/videos?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_URL}/videos`);
         setVideos(response.data);
         if (response.data.length > 0) {
           setSelectedVideoState(response.data[0]);
@@ -32,7 +30,6 @@ const Home = ({ setSelectedVideo }) => {
   }, [setSelectedVideo]);
 
   if (loading) return <div>Loading...</div>;
-
 
   return (
     <div className="main-content">

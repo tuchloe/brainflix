@@ -8,7 +8,7 @@ const NextVideos = ({ videos, selectedVideoId, onVideoSelect }) => {
       <h3 className="next-videos__title">NEXT VIDEOS</h3>
       <div className="next-videos__list">
         {videos
-          .filter(video => video.id !== selectedVideoId) // Filter out the selected video
+          .filter(video => video.id !== selectedVideoId)
           .map(video => (
             <Link
               to={`/videos/${video.id}`}
