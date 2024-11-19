@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import VideoPlayer from '../VideoPlayer/VideoPlayer';
-import Comments from '../Comments/Comments';
-import NextVideos from '../NextVideosBar/NextVideos';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import Comments from '../../components/Comments/Comments';
+import NextVideos from '../../components/NextVideosBar/NextVideos';
 import './VideoDetails.css';
 
 

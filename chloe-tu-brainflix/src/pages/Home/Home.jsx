@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
 import axios from 'axios';
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import Comments from "../Comments/Comments";
-import NextVideos from "../NextVideosBar/NextVideos";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
+import Comments from "../../components/Comments/Comments.jsx";
+import NextVideos from "../../components/NextVideosBar/NextVideos.jsx";
 import './Home.css';
 
 const Home = ({ setSelectedVideo }) => {
@@ -40,9 +40,9 @@ const Home = ({ setSelectedVideo }) => {
             <h1>{selectedVideo.title}</h1>
             <div className="video-info-data">
               <strong>By {selectedVideo.channel}</strong>
-              <p>{selectedVideo.views} views | {selectedVideo.likes} likes</p>
+              <p className="video-info-stats">{selectedVideo.views} views | {selectedVideo.likes} likes</p>
             </div>
-            <p>{selectedVideo.description}</p>
+            <p className="video-info-description">{selectedVideo.description}</p>
           </div>
           <Comments videoId={selectedVideo.id} />
         </div>

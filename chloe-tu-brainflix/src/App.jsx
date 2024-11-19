@@ -2,9 +2,9 @@ import './App.css';
 import React, { useState} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Header from "./components/Header/Header";
-import VideoDetails from './components/VideoDetails/VideoDetails';
-import UploadPage from './components/UploadPage/VideoUpload';
-import HomePage from './components/Home/Home';
+import VideoDetails from './pages/VideoDetails/VideoDetails';
+import UploadPage from './pages/UploadPage/VideoUpload';
+import HomePage from './pages/Home/Home';
 
 const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
