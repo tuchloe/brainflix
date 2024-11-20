@@ -6,6 +6,8 @@ import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import Comments from '../../components/Comments/Comments';
 import NextVideos from '../../components/NextVideosBar/NextVideos';
 import './VideoDetails.css';
+import viewsIcon from '../../assets/Icons/views.svg';
+import likesIcon from '../../assets/Icons/likes.svg';
 
 
 const VideoDetails = ({ setSelectedVideo }) => {
@@ -53,7 +55,7 @@ const VideoDetails = ({ setSelectedVideo }) => {
             <h1>{videoDetails.title}</h1>
             <div className="main-content__video-data">
               <strong>By {videoDetails.channel}</strong>
-              <p>{videoDetails.views} views | {videoDetails.likes} likes</p>
+              <p> <img src={viewsIcon} alt="views icon" className="icon" /> {videoDetails.views} views <img src={likesIcon} alt="likes icon" className="icon" />  {videoDetails.likes} likes</p>
             </div>
             <p>{videoDetails.description}</p>
           </div>

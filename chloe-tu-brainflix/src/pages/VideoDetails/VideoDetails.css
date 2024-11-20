@@ -92,6 +92,13 @@ body button {
   padding: 0 3vw;
   border-left: 1px solid #E1E1E1;
 }
+.main-content .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 @media (max-width: 767px) {
   .main-content body h1 {
     font-size: 24px;

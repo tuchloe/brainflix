@@ -44,65 +44,79 @@ body p {
   font-weight: 400;
 }
 
-.video-upload {
+.upload-page {
   padding: 20px;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.video-upload__title {
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 20px;
+.upload-page__divider {
+  margin: 20px 0;
+  border: 1px solid #E1E1E1;
 }
-.video-upload__form {
+.upload-page__form {
   display: flex;
   flex-direction: column;
+}
+.upload-page__form-content {
+  display: flex;
+  justify-content: space-between;
   gap: 20px;
 }
-.video-upload__section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.upload-page__form-left-column {
+  width: 32%;
 }
-.video-upload__label {
-  font-size: 14px;
+.upload-page__form-right-column {
+  width: 60%;
+  margin-right: 2%;
+}
+.upload-page__form-section {
+  margin-bottom: 20px;
+}
+.upload-page__form-label {
   font-family: "AvenirNextDemi";
-  color: #000;
+  color: #AFAFAF;
+  font-size: 10px;
+  margin-left: 2px;
 }
-.video-upload__thumbnail {
-  background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.video-upload__thumbnail-image {
+.upload-page__form-input, .upload-page__form-textarea {
   width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.video-upload__input, .video-upload__textarea {
-  width: 95%;
   padding: 10px;
-  border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
   background-color: #fafafa;
   font-size: 12px;
   font-family: "AvenirNext";
+  transition: border 0.3s ease;
 }
-.video-upload__textarea {
-  height: 120px;
-  resize: none;
+.upload-page__form-input:focus, .upload-page__form-textarea:focus {
+  border: 2px solid #0095FF;
+  outline: none;
 }
-.video-upload__buttons {
+.upload-page__form-input--error, .upload-page__form-textarea--error {
+  border: 1px solid #D22D2D;
+}
+.upload-page__form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.upload-page__form-placeholder {
+  margin-top: 10px;
+}
+.upload-page__form-thumbnail-img {
+  width: 100%;
+  max-width: 200px;
+}
+.upload-page__form-buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 15px;
+  justify-content: space-between;
 }
-.video-upload__buttons__button {
+@media (max-width: 767px) {
+  .upload-page__form-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.upload-page__form-button {
   font-size: 12px;
   padding: 10px 15px;
   border: none;
@@ -112,27 +126,63 @@ body p {
   width: 145px;
   transition: background-color 0.3s;
 }
-.video-upload__buttons__button--publish {
-  background-color: #0095ff;
-  color: #fff;
+@media (max-width: 767px) {
+  .upload-page__form-button {
+    width: 85%;
+  }
 }
-.video-upload__buttons__button--publish:hover {
-  background-color: #007acc;
-}
-.video-upload__buttons__button--cancel {
+.upload-page__form-button--cancel {
   background-color: #fff;
-  color: #0095ff;
+  color: #0095FF;
   border: 2px solid #fff;
 }
-.video-upload__buttons__button--cancel:hover {
-  background-color: #f0f0f0;
+.upload-page__form-button--publish {
+  background-color: #0095FF;
+  color: white;
+}
+.upload-page__form-button--publish:hover {
+  background-color: #007ACC;
+}
+.upload-page__title {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.upload-page__form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: black;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: black;
 }
 
 @media (max-width: 767px) {
-  .video-upload__buttons {
+  .upload-page__form-content {
     flex-direction: column;
   }
-  .video-upload__buttons .video-upload__button {
+  .upload-page__form-content__form-left-column {
+    width: 100%;
+    order: 1;
+  }
+  .upload-page__form-content__form-right-column {
+    width: 100%;
+    order: 2;
+    margin-right: 0;
+  }
+  .upload-page__form-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .upload-page__form-button {
     width: 100%;
   }
 }/*# sourceMappingURL=VideoUpload.css.map */

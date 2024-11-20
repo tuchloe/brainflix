@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { API_URL } from '../../config';
 import axios from 'axios';
 import '../Comments/Comments.css';
+import UserDisplayImage from '../../assets/Images/Mohan-muruge.jpg';  
+import CommentIcon from '../../assets/Icons/add_comment.svg'; 
 
 const Comments = ({ videoId }) => {
   const [comments, setComments] = useState([]);
@@ -60,7 +62,7 @@ const Comments = ({ videoId }) => {
       <div className="comments__new">
         <div className="comments__new-container">
           <img 
-            src="./assets/Images/Mohan-muruge.jpg" 
+            src={UserDisplayImage}  
             alt="User Display" 
             className="comments__new-user-image" 
           />
@@ -78,6 +80,7 @@ const Comments = ({ videoId }) => {
             className="comments__new-button"
             onClick={handleCommentSubmit}
           >
+            <img src={CommentIcon} alt="Comment Icon" className="comments__new-icon" />
             COMMENT
           </button>
         </div>
@@ -88,7 +91,7 @@ const Comments = ({ videoId }) => {
           <div key={comment.id} className="comments__item">
             <div className="comments__item-image-container">
               <img
-                src="n/a"
+                src={UserDisplayImage}
                 alt={`${comment.name}'s Display`}
                 className="comments__item-user-image"
               />

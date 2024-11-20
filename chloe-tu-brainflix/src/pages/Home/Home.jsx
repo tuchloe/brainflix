@@ -5,12 +5,14 @@ import VideoPlayer from "../../components/VideoPlayer/VideoPlayer.jsx";
 import Comments from "../../components/Comments/Comments.jsx";
 import NextVideos from "../../components/NextVideosBar/NextVideos.jsx";
 import './Home.css';
+import viewsIcon from '../../assets/Icons/views.svg';
+import likesIcon from '../../assets/Icons/likes.svg';
 
 const Home = ({ setSelectedVideo }) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideoState] = useState(null);
-  const [loading, setLoading] = useState(true);  
-  
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -40,7 +42,12 @@ const Home = ({ setSelectedVideo }) => {
             <h1>{selectedVideo.title}</h1>
             <div className="video-info-data">
               <strong>By {selectedVideo.channel}</strong>
-              <p className="video-info-stats">{selectedVideo.views} views | {selectedVideo.likes} likes</p>
+              <p className="video-info-stats">
+                <img src={viewsIcon} alt="views icon" className="icon" /> 
+                {selectedVideo.views} views  
+                <img src={likesIcon} alt="likes icon" className="icon" /> 
+                {selectedVideo.likes} likes
+              </p>
             </div>
             <p className="video-info-description">{selectedVideo.description}</p>
           </div>

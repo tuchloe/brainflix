@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Header/Header.css';
 import BrainFlixLogo from '../Header/BrainFlix-logo.svg';
+import UserDisplayImage from '../../assets/Images/Mohan-muruge.jpg';
+import UploadIcon from '../../assets/Icons/upload.svg';  
 
 const Header = () => {
   return (
@@ -22,10 +24,17 @@ const Header = () => {
           placeholder="Search" 
         />
         <Link to="/upload">
-          <button className="header__upload-button">UPLOAD</button>
+          <button className="header__upload-button">
+            <img 
+              className="header__upload-icon" 
+              src={UploadIcon} 
+              alt="Upload Icon"
+            />
+            UPLOAD
+          </button>
         </Link>
         <img 
-          src="./assets/Images/Mohan-muruge.jpg" 
+          src={UserDisplayImage}  
           alt="User Display" 
           className="header__user-img" 
         />
@@ -35,3 +44,4 @@ const Header = () => {
 };
 
 export default Header;
+

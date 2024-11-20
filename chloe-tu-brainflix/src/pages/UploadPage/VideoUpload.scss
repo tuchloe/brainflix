@@ -52,10 +52,121 @@ body {
   }
 }
 
-.video-upload {
+.upload-page {
   padding: 20px;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__divider {
+    margin: 20px 0;
+    border: 1px solid #E1E1E1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__form-left-column {
+    width: 32%;
+  }
+
+  &__form-right-column {
+    width: 60%;
+    margin-right: 2%;
+  }
+
+  &__form-section {
+    margin-bottom: 20px;
+  }
+
+  &__form-label {
+    font-family: 'AvenirNextDemi';
+    color: #AFAFAF;
+    font-size: 10px;
+    margin-left: 2px;
+  }
+
+  &__form-input,
+  &__form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 12px;
+    font-family: 'AvenirNext';
+    transition: border 0.3s ease;
+
+    &:focus {
+      border: 2px solid #0095FF;
+      outline: none;
+    }
+
+    &--error {
+      border: 1px solid #D22D2D;
+    }
+  }
+
+  &__form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__form-placeholder {
+    margin-top: 10px;
+  }
+
+  &__form-thumbnail-img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  &__form-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__form-button {
+    font-size: 12px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-family: 'AvenirNextBold';
+    border-radius: 4px;
+    width: 145px;
+    transition: background-color 0.3s;
+
+    @media (max-width: 767px) {
+      width: 85%;
+    }
+  }
+
+  &__form-button--cancel {
+    background-color: #fff;
+    color: #0095FF;
+    border: 2px solid #fff;
+  }
+
+  &__form-button--publish {
+    background-color: #0095FF;
+    color: white;
+
+    &:hover {
+      background-color: #007ACC;
+    }
+  }
 
   &__title {
     font-size: 16px;
@@ -63,99 +174,43 @@ body {
     margin-bottom: 20px;
   }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  &__label {
-    font-size: 14px;
-    font-family: 'AvenirNextDemi';
-    color: #000;
-  }
-
-  &__thumbnail {
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
-    &-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-  }
-
-  &__input,
-  &__textarea {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #e1e1e1;
-    border-radius: 4px;
-    background-color: #fafafa;
-    font-size: 12px;
-    font-family: 'AvenirNext';
-  }
-
-  &__textarea {
-    height: 120px;
-    resize: none;
-  }
-
-  &__buttons {
+  &__form-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     margin-top: 15px;
-
-    &__button {
-      font-size: 12px;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      font-family: 'AvenirNextBold';
-      border-radius: 4px;
-      width: 145px;
-      transition: background-color 0.3s;
-
-      &--publish {
-        background-color: #0095ff;
-        color: #fff;
-
-        &:hover {
-          background-color: #007acc;
-        }
-      }
-
-      &--cancel {
-        background-color: #fff;
-        color: #0095ff;
-        border: 2px solid #fff;
-
-        &:hover {
-          background-color: #f0f0f0;
-        }
-      }
-    }
   }
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: black;
+}
+
+
 @media (max-width: 767px) {
-  .video-upload__buttons {
+  .upload-page__form-content {
     flex-direction: column;
 
-    .video-upload__button {
+    &__form-left-column {
       width: 100%;
+      order: 1;  
     }
+
+    &__form-right-column {
+      width: 100%;
+      order: 2;  
+      margin-right: 0;
+    }
+  }
+
+  .upload-page__form-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; 
+  }
+
+  .upload-page__form-button {
+    width: 100%; 
   }
 }
